@@ -3,13 +3,14 @@
     class="inline-flex gap-2 items-center "
     :class="{
       'group cursor-pointer hover:text-blue-800': !readonly,
+      'text-blue-800': isLikedByMe,
     }"
   >
     <span
       v-if="isLikedByMe"
       v-html="HeartFilledIcon"
       aria-hidden="true"
-      class="w-4 h-4 fill-slate-700 inline-flex "
+      class="w-4 h-4 fill-blue-700 inline-flex "
     />
     <span
       v-else

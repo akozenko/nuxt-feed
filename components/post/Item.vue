@@ -1,8 +1,10 @@
 <template>
   <div class="border-slate-400 p-4 border bg-white rounded w-full flex flex-col gap-4 ">
-    <!-- {{ item }} -->
     <div class="flex md:flex-row flex-col justify-between gap-2">
-      <PostedBy :name="item.userName" />
+      <PostedBy
+        :name="item.userName"
+        :is-posted-by-me="isPostedByMe"
+      />
       <PostedAt :timestamp="item.createdAt" />
     </div>
     <PostMessage :message="item.content" />
@@ -24,6 +26,7 @@ import PostedBy from './PostedBy.vue';
 const props = defineProps<{
   item: Post & { isLikesByMe?: boolean };
   isAuth: boolean;
+  isPostedByMe: boolean;
 }>();
 
 const isLikedByMe = computed(() => Boolean(props.item.isLikesByMe));

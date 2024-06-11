@@ -8,6 +8,7 @@
       :key="item.id"
       :item="item"
       :is-auth="Boolean(userId)"
+      :is-posted-by-me="item.userName === userName"
     />
   </div>
 </template>

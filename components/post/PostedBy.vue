@@ -3,11 +3,19 @@
     <span
       v-html="UserProfileIcon"
       aria-hidden="true"
-      class="w-4 h-4 fill-slate-700 inline-flex"
+      class="w-4 h-4  inline-flex"
+      :class="{
+        'fill-blue-800': isPostedByMe,
+        'fill-slate-700': !isPostedByMe,
+      }"
     />
     <span
       aria-label="Posted By:"
-      class="text-sm text-slate-700"
+      class="text-sm "
+      :class="{
+        'text-blue-800': isPostedByMe,
+        'text-slate-700': !isPostedByMe,
+      }"
     >
       {{ name }}
     </span>
@@ -17,6 +25,7 @@
 import UserProfileIcon from '@/assets/user-profile-icon.svg?raw';
 
 defineProps<{
-  name: string
+  name: string;
+  isPostedByMe: boolean;
 }>();
 </script>
