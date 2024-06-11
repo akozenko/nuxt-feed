@@ -24,8 +24,7 @@
 
       @keydown="$emit('keydown', $event)"
       @keyup="$emit('keyup', $event)"
-    >
-    </textarea>
+    />
     <span
       v-if="typeof error === 'string'"
       :id="`${uuid}-error-message`"

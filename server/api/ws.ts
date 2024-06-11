@@ -6,15 +6,15 @@ import { insertNewPost } from '../services/posts-service';
 
 export default defineWebSocketHandler({
   open(peer) {
-    peer.subscribe('feeds')
+    peer.subscribe('feeds');
   },
   message(peer, message) {
     const cookies = parseCookies({
       node: {
         req: {
-          headers: peer.headers
-        }
-      }
+          headers: peer.headers,
+        },
+      },
     } as H3Event);
 
     const userId = cookies['user_id'];
@@ -43,11 +43,11 @@ export default defineWebSocketHandler({
             post,
             userId,
           });
-        })
+        });
       }
 
     } catch(e) {
       console.error(e);
     }
-  }
-})
+  },
+});

@@ -1,11 +1,11 @@
 <template>
   <span
-  class="spinner border-slate-100 border-b-blue-950"
-  :class="{
-    'w-8 h-8 border-4': size === 'md',
-    'w-4 h-4 border-2': size === 'sm'
-  }"
-  ></span>
+    class="spinner border-slate-100 border-b-blue-950"
+    :class="{
+      'w-8 h-8 border-4': size === 'md',
+      'w-4 h-4 border-2': size === 'sm'
+    }"
+  />
 </template>
 <script setup lang="ts">
 withDefaults(

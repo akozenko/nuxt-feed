@@ -1,8 +1,8 @@
-import { db } from './sqlite-service';
 import { likes } from '../../db/schema';
 import { getPostById, savePost } from './posts-service';
+import { db } from './sqlite-service';
 
-export async function like(postId: number, userId: number, userName: string) {
+export async function like(postId: number, userId: number) {
   // TODO: transaction
 
   const post = await getPostById(postId);

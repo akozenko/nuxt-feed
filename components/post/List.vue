@@ -1,6 +1,14 @@
 <template>
-  <div class="max-w-4xl justify-self-center flex flex-col gap-4 w-full grow" ref="root">
-    <PostItem v-for="item in posts" :key="item.id" :item="item" :is-auth="Boolean(userId)" />
+  <div
+    class="max-w-4xl justify-self-center flex flex-col gap-4 w-full grow"
+    ref="root"
+  >
+    <PostItem
+      v-for="item in posts"
+      :key="item.id"
+      :item="item"
+      :is-auth="Boolean(userId)"
+    />
   </div>
 </template>
 <script setup lang="ts">
@@ -28,7 +36,7 @@ watch(postsCount, async () => {
   }
   el.scrollTo({
     top: el.scrollHeight,
-    behavior: 'smooth'
+    behavior: 'smooth',
   });
 });
 </script>

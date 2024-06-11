@@ -7,7 +7,12 @@
     </div>
     <PostMessage :message="item.content" />
     <div>
-      <PostLikeButton :count="item.likesCount" :readonly="isLikedByMe || !isAuth" :is-liked-by-me="isLikedByMe" :post-id="item.id" />
+      <PostLikeButton
+        :count="item.likesCount"
+        :readonly="isLikedByMe || !isAuth"
+        :is-liked-by-me="isLikedByMe"
+        :post-id="item.id"
+      />
     </div>
   </div>
 </template>

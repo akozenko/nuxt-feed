@@ -1,10 +1,11 @@
+<!-- eslint-disable-next-line vue/valid-template-root -->
 <template>
   <!-- ws -->
 </template>
 <script setup lang="ts">
 import type { Post } from '~/db/schema';
 
-const { status, data, send, open, close } = useWebSocket(`ws://${location.host}/api/ws`);
+const { data } = useWebSocket(`ws://${location.host}/api/ws`);
 
 const emit = defineEmits<{
   (e: 'added-post', post: Post): void;

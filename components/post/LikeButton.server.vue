@@ -1,5 +1,9 @@
 <template>
-  <PostLikeSnippet :post-id="postId" :is-liked-by-me="isLikedByMe" :count="count" />
+  <PostLikeSnippet
+    :post-id="postId"
+    :is-liked-by-me="isLikedByMe"
+    :count="count"
+  />
 </template>
 <script setup lang="ts">
 defineProps<{

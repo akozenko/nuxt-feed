@@ -1,8 +1,8 @@
-import { desc, eq, and } from 'drizzle-orm';
+import { and,desc, eq } from 'drizzle-orm';
 
-import { posts, likes } from "../../db/schema";
-import { db } from "./sqlite-service";
-import type { Post, InsertPost } from "../../db/schema";
+import type { InsertPost,Post } from '../../db/schema';
+import { likes,posts } from '../../db/schema';
+import { db } from './sqlite-service';
 
 export function getRecentPosts(userId: number, limit = 10) {
   return db.select({
@@ -34,7 +34,7 @@ export async function insertNewPost(content: string, userName: string) {
     userName,
     createdAt: new Date().toISOString(),
     likesCount: 0,
-  }
+  };
 
   const [ insertedPost ] = await db.insert(posts).values(newPost).returning();
   return insertedPost;

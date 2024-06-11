@@ -3,7 +3,7 @@ import { getUserByName, insertNewUser } from '../services/users-service';
 const ONE_DAY = 1000 * 60 * 60 * 24;
 
 export default defineEventHandler(async (event) => {
-  const { name } = await readBody(event)
+  const { name } = await readBody(event);
   try {
     if (await isValidName(name)) {
       const insertedUser = await insertNewUser(name);
@@ -17,6 +17,7 @@ export default defineEventHandler(async (event) => {
       statusMessage: `"${name}" is already in use`,
       message: `"${name}" is already in use`,
     });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (e: any) {
     throw createError({
       statusCode: 400,

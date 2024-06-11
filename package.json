@@ -9,7 +9,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "migration:create": "npm exec drizzle-kit generate --out migrations --schema db/schema.ts",
-    "migration:run": "npm exec drizzle-kit push"
+    "migration:run": "npm exec drizzle-kit push",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@databases/sqlite": "^4.0.2",
@@ -21,11 +23,16 @@
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
+    "@nuxt/eslint": "^0.3.13",
     "@types/better-sqlite3": "^7.6.10",
     "@vueuse/nuxt": "^10.10.0",
     "better-sqlite3": "^11.0.0",
     "crossws": "^0.2.4",
     "drizzle-kit": "^0.22.7",
-    "drizzle-orm": "^0.31.2"
+    "drizzle-orm": "^0.31.2",
+    "eslint": "^9.4.0",
+    "eslint-plugin-simple-import-sort": "^12.1.0",
+    "typescript-eslint": "^7.13.0",
+    "vue-eslint-parser": "^9.4.3"
   }
 }

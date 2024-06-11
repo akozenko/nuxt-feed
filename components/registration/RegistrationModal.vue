@@ -1,13 +1,28 @@
 <template>
-  <BaseModal v-if="isVisible" @close="handleCloseModalEvent">
+  <BaseModal
+    v-if="isVisible"
+    @close="handleCloseModalEvent"
+  >
     <template #header>
       Registration
     </template>
 
-    <BaseInput v-model="name" :error="error" label="Username:" class="w-full" :disabled="isFetching" />
+    <BaseInput
+      v-model="name"
+      :error="error"
+      label="Username:"
+      class="w-full"
+      :disabled="isFetching"
+    />
 
     <template #footer>
-      <BaseButton :processing="isFetching" :disabled="!isFilled" @click="handleSignInClickEvent">Sign in</BaseButton>
+      <BaseButton
+        :processing="isFetching"
+        :disabled="!isFilled"
+        @click="handleSignInClickEvent"
+      >
+        Sign in
+      </BaseButton>
     </template>
   </BaseModal>
 </template>
@@ -21,21 +36,22 @@ const isFilled = computed(() => name.value.trim().length > 0);
 
 const handleCloseModalEvent = () => {
   isVisible.value = false;
-}
+};
 
 const handleSignInClickEvent = async () => {
   isFetching.value = true;
   try {
-    await $fetch('/api/auth', { method: 'POST', body: { name: name.value.trim() } })
+    await $fetch('/api/auth', { method: 'POST', body: { name: name.value.trim() } });
     isFetching.value = false;
     handleCloseModalEvent();
     window.location.reload();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch(e: any) {
     console.error(e);
     error.value = e.statusMessage;
     isFetching.value = false;
   }
-}
+};
 
 defineExpose({
   showModal() {
@@ -43,6 +59,6 @@ defineExpose({
     name.value = '';
     isVisible.value = true;
     error.value = false;
-  }
-})
+  },
+});
 </script>

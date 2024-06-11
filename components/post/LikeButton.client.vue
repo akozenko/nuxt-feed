@@ -1,9 +1,15 @@
 <template>
-  <PostLikeSnippet :readonly="readonly" :post-id="postId" :is-liked-by-me="isLikedByMe" :count="count" @click="handleLikeClickEvent" />
+  <PostLikeSnippet
+    :readonly="readonly"
+    :post-id="postId"
+    :is-liked-by-me="isLikedByMe"
+    :count="count"
+    @click="handleLikeClickEvent"
+  />
 </template>
 <script setup lang="ts">
 
-const { status, data, send, open, close } = useWebSocket<{postId: number}>(`ws://${location.host}/api/ws`)
+const { send } = useWebSocket<{postId: number}>(`ws://${location.host}/api/ws`);
 
 const props = withDefaults(defineProps<{
   readonly?: boolean;
@@ -22,5 +28,5 @@ const handleLikeClickEvent = () => {
     type: 'like',
     postId: props.postId,
   }));
-}
+};
 </script>

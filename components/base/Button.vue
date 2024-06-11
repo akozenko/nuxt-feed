@@ -9,7 +9,10 @@
   >
     <slot />
 
-    <BaseSpinner v-if="processing" size="sm" />
+    <BaseSpinner
+      v-if="processing"
+      size="sm"
+    />
   </button>
 </template>
 <script setup lang="ts">

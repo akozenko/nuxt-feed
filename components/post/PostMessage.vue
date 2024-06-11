@@ -1,6 +1,9 @@
 <template>
   <div>
-    <p v-for="text in texts">
+    <p
+      v-for="(text, idx) in texts"
+      :key="idx"
+    >
       {{ text }}
     </p>
     <!-- TODO: add "show more"/"show less button" -->

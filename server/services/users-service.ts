@@ -1,7 +1,7 @@
 import { eq } from 'drizzle-orm';
 
-import { db } from './sqlite-service';
 import { users } from '../../db/schema';
+import { db } from './sqlite-service';
 
 export async function insertNewUser(name: string) {
   const [ insertedUser ] = await db.insert(users).values({name}).returning();

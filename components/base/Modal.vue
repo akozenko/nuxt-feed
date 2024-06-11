@@ -3,7 +3,10 @@
     class="fixed left-0 top-0 right-0 bottom-0 flex flex-col items-center justify-center"
     role="dialog"
   >
-    <div class="absolute left-0 top-0 right-0 bottom-0 bg-slate-600 opacity-55" @click="handleClickOutsideEvent" />
+    <div
+      class="absolute left-0 top-0 right-0 bottom-0 bg-slate-600 opacity-55"
+      @click="handleClickOutsideEvent"
+    />
     <div
       class="rounded bg-slate-100 flex flex-col relative z-10"
       :class="{
@@ -50,5 +53,5 @@ const emit = defineEmits<{
 
 const handleClickOutsideEvent = () => {
   emit('close');
-}
+};
 </script>
