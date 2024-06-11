@@ -1,0 +1,31 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "migration:create": "npm exec drizzle-kit generate --out migrations --schema db/schema.ts",
+    "migration:run": "npm exec drizzle-kit push"
+  },
+  "dependencies": {
+    "@databases/sqlite": "^4.0.2",
+    "@libsql/client": "^0.6.2",
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "@vueuse/core": "^10.10.0",
+    "nuxt": "^3.11.2",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.10",
+    "@vueuse/nuxt": "^10.10.0",
+    "better-sqlite3": "^11.0.0",
+    "crossws": "^0.2.4",
+    "drizzle-kit": "^0.22.7",
+    "drizzle-orm": "^0.31.2"
+  }
+}
